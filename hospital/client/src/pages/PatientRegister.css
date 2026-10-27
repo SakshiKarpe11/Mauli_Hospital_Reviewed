@@ -1,0 +1,11 @@
+.patient-register-page { min-height:100vh; display:flex; align-items:center; justify-content:center; background:#f3f7fb; padding:30px; box-sizing:border-box; }
+.patient-register-card { width:min(520px,100%); background:#fff; border-radius:18px; box-shadow:0 16px 45px rgba(20,45,80,.12); padding:34px; }
+.register-brand { display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+.register-brand .hospital-logo { width:48px; height:48px; border-radius:12px; display:grid; place-items:center; background:#2563eb; color:#fff; font-size:24px; font-weight:800; }
+.register-brand h1 { margin:0; font-size:18px; } .register-brand p { margin:2px 0 0; color:#64748b; font-size:13px; }
+.patient-register-card h2 { margin:0 0 6px; font-size:26px; } .register-subtitle { color:#64748b; line-height:1.5; margin-bottom:22px; }
+.patient-register-card form { display:grid; gap:14px; } .patient-register-card label { display:grid; gap:7px; font-weight:600; font-size:14px; }
+.patient-register-card input { padding:12px; border:1px solid #d7e0ea; border-radius:9px; font-size:15px; } .patient-register-card input:focus { outline:none; border-color:#2563eb; }
+.patient-register-card form button { margin-top:5px; border:0; border-radius:9px; padding:13px; background:#2563eb; color:#fff; font-weight:700; cursor:pointer; }
+.patient-register-card form button:disabled { opacity:.6; } .back-login { margin-top:15px; width:100%; border:0; background:transparent; color:#2563eb; cursor:pointer; padding:8px; }
+.register-error,.register-success { padding:11px 13px; border-radius:9px; margin-bottom:15px; } .register-error{background:#fff1f2;color:#b42318}.register-success{background:#ecfdf3;color:#087443}

@@ -1,0 +1,3118 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #f6f8fc;
+  color: #172033;
+}
+
+
+/* =========================================
+   MAIN LOGIN PAGE
+========================================= */
+
+.portal-page {
+  min-height: 100vh;
+
+  display: grid;
+
+  grid-template-columns: 45% 55%;
+
+  background: #f6f8fc;
+}
+
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.portal-left {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 55px 58px;
+
+  color: white;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(45, 91, 220, 0.35),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 20% 70%,
+      rgba(111, 55, 190, 0.35),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #071027 0%,
+      #0d2258 45%,
+      #070b20 100%
+    );
+}
+
+
+/* Decorative glow */
+
+.portal-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: rgba(66, 92, 255, 0.12);
+
+  filter: blur(80px);
+
+  right: -220px;
+  top: 100px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.left-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 560px;
+}
+
+
+/* =========================================
+   HOSPITAL BRAND
+========================================= */
+
+.hospital-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 65px;
+}
+
+.hospital-logo {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #635bff,
+      #405de6
+    );
+
+  box-shadow:
+    0 8px 25px rgba(67, 78, 255, 0.35);
+
+  font-size: 24px;
+
+  font-weight: 800;
+}
+
+.hospital-brand h1 {
+  font-size: 20px;
+
+  letter-spacing: -0.3px;
+
+  color: white;
+}
+
+.hospital-brand p {
+  margin-top: 3px;
+
+  font-size: 12px;
+
+  color: #a9b4cf;
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.portal-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 8px 13px;
+
+  margin-bottom: 25px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(126, 150, 220, 0.35);
+
+  background: rgba(86, 107, 173, 0.15);
+
+  color: #aebce0;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   LEFT HEADING
+========================================= */
+
+.left-heading h2 {
+  font-size: clamp(34px, 3vw, 48px);
+
+  line-height: 1.12;
+
+  letter-spacing: -1.2px;
+
+  margin-bottom: 22px;
+
+  color: #ffffff;
+}
+
+.left-heading p {
+  max-width: 500px;
+
+  color: #9ba9c7;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.feature-list {
+  margin-top: 45px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.feature-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  border: 1px solid rgba(116, 137, 202, 0.3);
+
+  background: rgba(74, 91, 155, 0.18);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+}
+
+.feature-item div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.feature-item strong {
+  color: #e7ecf9;
+
+  font-size: 14px;
+}
+
+.feature-item span {
+  color: #8997b5;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   LEFT FOOTER
+========================================= */
+
+.left-footer {
+  position: relative;
+
+  z-index: 2;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(154, 169, 211, 0.15);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #6f7d9e;
+
+  font-size: 11px;
+}
+
+.left-footer div {
+  display: flex;
+
+  gap: 20px;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.portal-right {
+  min-height: 100vh;
+
+  background: #f7f9fc;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px;
+}
+
+
+/* =========================================
+   LOGIN WRAPPER
+========================================= */
+
+.login-wrapper {
+  width: 100%;
+
+  max-width: 530px;
+}
+
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card {
+  width: 100%;
+
+  background: transparent;
+}
+
+
+/* =========================================
+   LOGIN HEADER
+========================================= */
+
+.login-header {
+  margin-bottom: 28px;
+}
+
+.login-header h2 {
+  color: #182235;
+
+  font-size: 28px;
+
+  line-height: 1.2;
+
+  margin-bottom: 8px;
+
+  font-weight: 750;
+}
+
+.login-header p {
+  color: #7c879a;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   ROLE TABS
+========================================= */
+
+.role-tabs {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 5px;
+
+  padding: 5px;
+
+  background: #edf1f6;
+
+  border: 1px solid #e0e5ec;
+
+  border-radius: 10px;
+
+  margin-bottom: 32px;
+}
+
+.role-tab {
+  height: 48px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #6d7788;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  transition: 0.2s ease;
+}
+
+.role-tab:hover {
+  color: #2b5ed7;
+}
+
+.role-tab.active {
+  background: white;
+
+  color: #2457c6;
+
+  box-shadow:
+    0 2px 7px rgba(25, 40, 70, 0.08);
+}
+
+.role-tab span {
+  font-size: 16px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #3d485a;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   INPUT BOX
+========================================= */
+
+.input-box {
+  position: relative;
+
+  width: 100%;
+}
+
+.input-box input {
+  width: 100%;
+
+  height: 52px;
+
+  border: 1px solid #dbe1e9;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: white;
+
+  color: #263244;
+
+  font-size: 14px;
+
+  padding: 0 48px;
+
+  transition: 0.2s ease;
+}
+
+.input-box input:focus {
+  border-color: #4169d8;
+
+  box-shadow:
+    0 0 0 3px rgba(65, 105, 216, 0.1);
+}
+
+.input-box input::placeholder {
+  color: #9aa4b4;
+}
+
+
+/* =========================================
+   INPUT ICON
+========================================= */
+
+.input-icon {
+  position: absolute;
+
+  left: 16px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 16px;
+
+  color: #9ba5b5;
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   PASSWORD BUTTON
+========================================= */
+
+.password-button {
+  position: absolute;
+
+  right: 13px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: none;
+
+  background: transparent;
+
+  color: #3765c7;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.login-error {
+  margin-bottom: 18px;
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  background: #fff1f2;
+
+  border: 1px solid #fecdd3;
+
+  color: #be123c;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-submit {
+  width: 100%;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #101a31;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(16, 26, 49, 0.18);
+
+  transition: 0.2s ease;
+}
+
+.login-submit:hover {
+  background: #182440;
+
+  transform: translateY(-1px);
+}
+
+.login-submit:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================
+   SECURITY
+========================================= */
+
+.security-box {
+  margin-top: 28px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #e3e7ed;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.security-icon {
+  font-size: 17px;
+}
+
+.security-box div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.security-box strong {
+  color: #526073;
+
+  font-size: 12px;
+}
+
+.security-box span {
+  color: #98a2b1;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+  .portal-page {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-left {
+    min-height: auto;
+
+    padding: 40px;
+  }
+
+  .left-heading h2 {
+    font-size: 38px;
+  }
+
+  .feature-list {
+    margin-top: 30px;
+  }
+
+  .left-footer {
+    margin-top: 50px;
+  }
+
+  .portal-right {
+    min-height: auto;
+
+    padding: 50px 25px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .portal-left {
+    padding: 30px 25px;
+  }
+
+  .hospital-brand {
+    margin-bottom: 45px;
+  }
+
+  .left-heading h2 {
+    font-size: 32px;
+  }
+
+  .portal-right {
+    padding: 35px 20px;
+  }
+
+  .role-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .role-tab {
+    height: 44px;
+  }
+
+  .left-footer {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+}
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e5e7eb;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 16px;
+}
+
+
+/* Hospital Logo */
+
+.hospital-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 10px 30px;
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.hospital-logo h2 {
+  font-size: 20px;
+}
+
+.hospital-logo span {
+  font-size: 11px;
+
+  color: #6b7280;
+
+  letter-spacing: 2px;
+}
+
+
+/* Sidebar Menu */
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.menu-item {
+  text-decoration: none;
+
+  color: #6b7280;
+
+  padding: 13px 14px;
+
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  border: none;
+
+  background: transparent;
+
+  font-family: inherit;
+}
+
+.menu-item:hover {
+  background: #f1f5f9;
+
+  color: #2563eb;
+}
+
+.menu-item.active {
+  background: #eaf2ff;
+
+  color: #2563eb;
+
+  font-weight: 600;
+}
+
+
+/* Sidebar Bottom */
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.sidebar-bottom .menu-item {
+  width: 100%;
+
+  text-align: left;
+
+  color: #dc2626;
+}
+
+.sidebar-bottom .menu-item:hover {
+  background: #fff1f2;
+
+  color: #dc2626;
+}
+
+
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+.main-section {
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  height: 80px;
+
+  background: white;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 32px;
+}
+
+.navbar h3 {
+  font-size: 18px;
+}
+
+.navbar p {
+  color: #9ca3af;
+
+  font-size: 13px;
+
+  margin-top: 4px;
+}
+
+
+/* Doctor / User Profile */
+
+.doctor-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.doctor-profile span {
+  display: block;
+
+  font-size: 12px;
+
+  color: #9ca3af;
+
+  margin-top: 3px;
+}
+
+.notification {
+  font-size: 20px;
+
+  margin-right: 12px;
+}
+
+.doctor-avatar {
+  width: 42px;
+  height: 42px;
+
+  background: #dbeafe;
+
+  color: #2563eb;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-weight: bold;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+  padding: 32px;
+}
+
+.welcome-section {
+  margin-bottom: 28px;
+}
+
+.welcome-section h1 {
+  font-size: 26px;
+
+  margin-bottom: 8px;
+}
+
+.welcome-section p {
+  color: #6b7280;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  border: 1px solid #e5e7eb;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+
+  background: #eff6ff;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+}
+
+.stat-card p {
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.stat-card h2 {
+  font-size: 24px;
+
+  margin: 5px 0;
+}
+
+.stat-card span {
+  color: #16a34a;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   DASHBOARD PANELS
+========================================= */
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr;
+
+  gap: 20px;
+
+  margin-top: 24px;
+}
+
+.panel {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  padding: 22px;
+}
+
+.panel-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.panel-header h2 {
+  font-size: 18px;
+}
+
+.panel-header button {
+  border: none;
+
+  background: transparent;
+
+  color: #2563eb;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   PATIENTS
+========================================= */
+
+.patient-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.patient-avatar {
+  width: 40px;
+  height: 40px;
+
+  background: #e0f2fe;
+
+  color: #0369a1;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+}
+
+.patient-row p {
+  font-size: 13px;
+
+  color: #9ca3af;
+
+  margin-top: 4px;
+}
+
+.patient-row > span {
+  margin-left: auto;
+
+  color: #9ca3af;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   APPOINTMENTS
+========================================= */
+
+.appointment {
+  display: flex;
+
+  gap: 20px;
+
+  padding: 16px 0;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.appointment > strong {
+  color: #2563eb;
+
+  min-width: 75px;
+}
+
+.appointment p {
+  font-weight: 600;
+}
+
+.appointment span {
+  color: #9ca3af;
+
+  font-size: 12px;
+
+  display: block;
+
+  margin-top: 4px;
+}
+
+
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+.login-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  background: #f5f7fb;
+}
+
+
+/* Left Section */
+
+.login-left {
+  width: 50%;
+
+  min-height: 100vh;
+
+  background: #2563eb;
+
+  color: white;
+
+  padding: 60px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+
+/* Hospital Brand */
+
+.hospital-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.hospital-logo-large {
+  width: 55px;
+  height: 55px;
+
+  background: white;
+
+  color: #2563eb;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+
+  font-weight: bold;
+}
+
+.hospital-brand h1 {
+  font-size: 28px;
+
+  letter-spacing: 2px;
+}
+
+.hospital-brand p {
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  opacity: 0.8;
+}
+
+
+/* Hospital Message */
+
+.hospital-message {
+  max-width: 500px;
+}
+
+.hospital-message h2 {
+  font-size: 48px;
+
+  line-height: 1.15;
+
+  margin-bottom: 22px;
+}
+
+.hospital-message p {
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  opacity: 0.85;
+}
+
+
+/* Doctor Information */
+
+.doctor-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.doctor-avatar-large {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+}
+
+.doctor-info strong {
+  display: block;
+
+  font-size: 15px;
+}
+
+.doctor-info span {
+  display: block;
+
+  font-size: 12px;
+
+  opacity: 0.75;
+
+  margin-top: 4px;
+}
+
+
+/* =========================================
+   LOGIN RIGHT SECTION
+========================================= */
+
+.login-right {
+  width: 50%;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px;
+}
+
+
+/* Login Card */
+
+.login-card {
+  width: 100%;
+
+  max-width: 430px;
+
+  background: white;
+
+  padding: 45px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Login Header */
+
+.login-header {
+  margin-bottom: 32px;
+}
+
+.login-header h2 {
+  font-size: 30px;
+
+  margin-bottom: 8px;
+}
+
+.login-header p {
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+
+  height: 48px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  padding: 0 14px;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* Password Label */
+
+.password-label {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.password-label label {
+  margin-bottom: 8px;
+}
+
+
+/* Forgot Password */
+
+.forgot-password {
+  border: none;
+
+  background: transparent;
+
+  color: #2563eb;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+
+/* Password Input */
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 65px;
+}
+
+
+/* Show Password */
+
+.show-password {
+  position: absolute;
+
+  right: 12px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: none;
+
+  background: transparent;
+
+  color: #2563eb;
+
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+
+/* Remember Me */
+
+.remember-me {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+
+  margin-bottom: 24px;
+}
+
+.remember-me input {
+  width: 15px;
+
+  height: 15px;
+}
+
+
+/* Login Button */
+
+.login-button {
+  width: 100%;
+
+  height: 50px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #1d4ed8;
+}
+
+
+/* Login Footer */
+
+.login-footer {
+  text-align: center;
+
+  margin-top: 25px;
+}
+
+.login-footer p {
+  color: #9ca3af;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   GENERAL BUTTON RESET
+========================================= */
+
+button {
+  font-family: inherit;
+}
+
+
+/* =========================================
+   RESPONSIVE - DASHBOARD
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE - LOGIN
+========================================= */
+
+@media (max-width: 800px) {
+
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-left {
+    width: 100%;
+
+    min-height: 320px;
+
+    padding: 35px;
+  }
+
+  .hospital-message {
+    display: none;
+  }
+
+  .login-right {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 30px 20px;
+  }
+
+  .login-card {
+    padding: 30px;
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE - SIDEBAR / MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .sidebar {
+    width: 70px;
+
+    min-width: 70px;
+
+    padding: 24px 10px;
+  }
+
+  .hospital-logo {
+    justify-content: center;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hospital-logo > div:not(.logo-icon) {
+    display: none;
+  }
+
+  .menu-item {
+    justify-content: center;
+
+    font-size: 0;
+
+    padding: 13px 8px;
+  }
+
+  .menu-item span {
+    font-size: 18px;
+  }
+
+  .sidebar-bottom .menu-item {
+    justify-content: center;
+  }
+
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .doctor-profile > div:last-child {
+    display: none;
+  }
+
+  .dashboard {
+    padding: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================
+   SMALL SCREEN
+========================================= */
+
+@media (max-width: 500px) {
+
+  .navbar {
+    height: 70px;
+  }
+
+  .dashboard {
+    padding: 15px;
+  }
+
+  .welcome-section h1 {
+    font-size: 22px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .login-left {
+    padding: 25px;
+  }
+
+  .login-right {
+    padding: 20px 15px;
+  }
+
+  .login-card {
+    padding: 25px 20px;
+  }
+
+  .hospital-message h2 {
+    font-size: 36px;
+  }
+}
+/* ========================================
+   MAULI HOSPITAL SIDEBAR
+======================================== */
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #17243a;
+  color: #ffffff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Logo */
+
+.sidebar-logo {
+  height: 90px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: #2f80ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.sidebar-logo p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #aeb9ca;
+  letter-spacing: 1.5px;
+}
+
+/* Navigation */
+
+.sidebar-nav {
+  flex: 1;
+  padding: 12px 0;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #dce4ef;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.sidebar-link.active {
+  background: #2f80ed;
+  color: white;
+  border-left: 4px solid #ffffff;
+  padding-left: 16px;
+}
+
+.sidebar-link span:first-child {
+  width: 20px;
+  text-align: center;
+}
+
+/* Section */
+
+.sidebar-section {
+  margin-top: 4px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px 7px;
+  color: #7f8da3;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.section-title span:first-child {
+  font-size: 10px;
+}
+
+/* Sub menu */
+
+.sidebar-sub-link {
+  display: block;
+  padding: 8px 20px 8px 48px;
+  color: #c8d2e0;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.sidebar-sub-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+/* Logout */
+
+.sidebar-logout {
+  margin: 12px 16px 18px;
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar-logout:hover {
+  background: #d9534f;
+  border-color: #d9534f;
+}
+/* ========================================
+   MAIN LAYOUT
+======================================== */
+
+.app-layout {
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+.main-section {
+  margin-left: 250px;
+  min-height: 100vh;
+}
+
+/* ========================================
+   TOP NAVBAR
+======================================== */
+
+.top-navbar {
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e9f0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+/* Hospital name */
+
+.navbar-left h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #17243a;
+  font-weight: 700;
+}
+
+/* Right section */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* User */
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: #2f80ed;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.user-info strong {
+  color: #17243a;
+  font-size: 13px;
+}
+
+.user-info span {
+  color: #7b8798;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+/* Logout */
+
+.navbar-logout {
+  background: transparent;
+  border: 1px solid #d7dde7;
+
+  padding: 8px 14px;
+
+  border-radius: 5px;
+
+  color: #39475a;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.navbar-logout:hover {
+  background: #f4f7fb;
+}
+
+/* ========================================
+   DASHBOARD BANNER
+======================================== */
+
+.dashboard {
+  padding: 24px;
+}
+
+/* Blue welcome section */
+
+.dashboard-banner {
+  min-height: 180px;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #1769e0,
+    #2f80ed
+  );
+
+  padding: 28px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 24px;
+
+  box-sizing: border-box;
+}
+
+.banner-content {
+  color: white;
+}
+
+.banner-greeting {
+  margin: 0 0 5px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.banner-content h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.banner-content > p:last-child {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Search area */
+
+.banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.patient-search {
+  width: 250px;
+  height: 42px;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 0 14px;
+
+  font-size: 13px;
+
+  outline: none;
+}
+
+.search-button {
+  height: 42px;
+
+  padding: 0 20px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #155fc5;
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: #104fa7;
+}
+
+.new-patient-button {
+  height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: white;
+  color: #1769e0;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.new-patient-button:hover {
+  background: #f2f6ff;
+}
+/* ========================================
+   DOCTOR MANAGEMENT
+======================================== */
+
+.doctors-page {
+    padding: 30px;
+    width: 100%;
+}
+
+.doctors-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.doctors-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.doctors-header p {
+    margin-top: 6px;
+    color: #777;
+}
+
+.add-doctor-btn {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.add-doctor-btn:hover {
+    background: #1d4ed8;
+}
+
+.doctor-form-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.doctor-form-card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.doctor-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.doctor-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.doctor-form-group label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.doctor-form-group input {
+    padding: 11px 13px;
+    border: 1px solid #d6d6d6;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+}
+
+.doctor-form-group input:focus {
+    border-color: #2563eb;
+}
+
+.days-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.day-checkbox {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 5px;
+    font-weight: 400 !important;
+}
+
+.day-checkbox input {
+    width: auto;
+}
+
+.doctor-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.doctor-cancel-btn,
+.doctor-save-btn {
+    border: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.doctor-cancel-btn {
+    background: #e5e7eb;
+    color: #333;
+}
+
+.doctor-save-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.doctors-table-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.doctor-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.doctor-table-header h2 {
+    margin: 0;
+}
+
+.doctor-table-header p {
+    margin-top: 6px;
+    color: #777;
+    font-size: 14px;
+}
+
+.doctor-refresh-btn {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 9px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.doctors-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.doctors-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.doctors-table th {
+    text-align: left;
+    padding: 13px;
+    background: #f7f8fa;
+    font-size: 13px;
+    color: #555;
+}
+
+.doctors-table td {
+    padding: 14px 13px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.doctors-table tbody tr:hover {
+    background: #fafafa;
+}
+
+.doctor-message {
+    text-align: center;
+    padding: 40px;
+    color: #777;
+}
+
+.doctor-error {
+    padding: 15px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+
+    .doctors-page {
+        padding: 20px;
+    }
+
+    .doctors-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .doctor-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ========================================
+   DOCTOR ACTIONS
+======================================== */
+
+.doctor-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.edit-doctor-btn,
+.delete-doctor-btn {
+    border: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.edit-doctor-btn {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.edit-doctor-btn:hover {
+    background: #bfdbfe;
+}
+
+.delete-doctor-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-doctor-btn:hover {
+    background: #fecaca;
+}
+/* ========================================
+   APPOINTMENT MANAGEMENT
+======================================== */
+
+.appointments-page {
+    padding: 28px;
+    background: #f8fafc;
+    min-height: calc(100vh - 70px);
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.appointments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.appointments-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #1e293b;
+}
+
+.appointments-header p {
+    margin: 6px 0 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   ADD APPOINTMENT BUTTON
+======================================== */
+
+.add-appointment-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.add-appointment-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* ========================================
+   APPOINTMENT FORM CARD
+======================================== */
+
+.appointment-form-card {
+    background: white;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.appointment-form-card h2 {
+    margin: 0 0 22px;
+    font-size: 20px;
+    color: #1e293b;
+}
+
+
+/* ========================================
+   FORM GRID
+======================================== */
+
+.appointment-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.appointment-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.appointment-form-group label {
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.appointment-form-group input,
+.appointment-form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #1e293b;
+}
+
+.appointment-form-group input:focus,
+.appointment-form-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+
+/* ========================================
+   FORM BUTTONS
+======================================== */
+
+.appointment-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.appointment-cancel-btn,
+.appointment-save-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.appointment-cancel-btn {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.appointment-cancel-btn:hover {
+    background: #cbd5e1;
+}
+
+.appointment-save-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.appointment-save-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* ========================================
+   APPOINTMENT TABLE CARD
+======================================== */
+
+.appointments-table-card {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    overflow: hidden;
+}
+
+.appointment-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.appointment-table-header h2 {
+    margin: 0;
+    font-size: 19px;
+    color: #1e293b;
+}
+
+.appointment-table-header p {
+    margin: 5px 0 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* ========================================
+   REFRESH BUTTON
+======================================== */
+
+.appointment-refresh-btn {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.appointment-refresh-btn:hover {
+    background: #e2e8f0;
+}
+
+
+/* ========================================
+   TABLE
+======================================== */
+
+.appointments-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.appointments-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.appointments-table td {
+    padding: 15px 18px;
+    font-size: 13px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.appointments-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.appointments-table td strong {
+    color: #1e293b;
+}
+
+
+/* ========================================
+   STATUS
+======================================== */
+
+.appointments-table td:nth-child(6) {
+    font-weight: 600;
+}
+
+
+/* ========================================
+   ACTION BUTTONS
+======================================== */
+
+.appointment-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.edit-appointment-btn,
+.delete-appointment-btn {
+    border: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.edit-appointment-btn {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.edit-appointment-btn:hover {
+    background: #bfdbfe;
+}
+
+.delete-appointment-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-appointment-btn:hover {
+    background: #fecaca;
+}
+
+
+/* ========================================
+   MESSAGES
+======================================== */
+
+.appointment-message {
+    padding: 40px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.appointment-error {
+    padding: 20px;
+    text-align: center;
+    color: #dc2626;
+    background: #fef2f2;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .appointment-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .appointment-form-group.full-width {
+        grid-column: auto;
+    }
+
+    .appointments-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .add-appointment-btn {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .appointments-page {
+        padding: 16px;
+    }
+
+    .appointment-table-header {
+        padding: 16px;
+    }
+
+    .appointments-table th,
+    .appointments-table td {
+        padding: 12px;
+    }
+
+    .appointment-form-card {
+        padding: 18px;
+    }
+
+    .appointment-form-actions {
+        flex-direction: column;
+    }
+
+    .appointment-cancel-btn,
+    .appointment-save-btn {
+        width: 100%;
+    }
+}
+/* ========================================
+   MEDICAL RECORDS
+======================================== */
+
+.medical-records-page {
+    padding: 28px;
+    background: #f8fafc;
+    min-height: calc(100vh - 70px);
+}
+
+
+/* HEADER */
+
+.medical-records-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.medical-records-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #1e293b;
+}
+
+.medical-records-header p {
+    margin: 6px 0 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.add-medical-record-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.add-medical-record-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* FORM CARD */
+
+.medical-record-form-card {
+    background: white;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.medical-record-form-card h2 {
+    margin: 0 0 22px;
+    font-size: 20px;
+    color: #1e293b;
+}
+
+.medical-record-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.medical-record-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.medical-record-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.medical-record-form-group label {
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.medical-record-form-group input,
+.medical-record-form-group select,
+.medical-record-form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #1e293b;
+    font-family: inherit;
+}
+
+.medical-record-form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.medical-record-form-group input:focus,
+.medical-record-form-group select:focus,
+.medical-record-form-group textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+
+/* FORM BUTTONS */
+
+.medical-record-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.medical-record-cancel-btn,
+.medical-record-save-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.medical-record-cancel-btn {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.medical-record-cancel-btn:hover {
+    background: #cbd5e1;
+}
+
+.medical-record-save-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.medical-record-save-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* TABLE CARD */
+
+.medical-records-table-card {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    overflow: hidden;
+}
+
+.medical-record-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.medical-record-table-header h2 {
+    margin: 0;
+    font-size: 19px;
+    color: #1e293b;
+}
+
+.medical-record-table-header p {
+    margin: 5px 0 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.medical-record-refresh-btn {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.medical-record-refresh-btn:hover {
+    background: #e2e8f0;
+}
+
+
+/* TABLE */
+
+.medical-records-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.medical-records-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.medical-records-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.medical-records-table td {
+    padding: 15px 18px;
+    font-size: 13px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.medical-records-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.medical-records-table td strong {
+    color: #1e293b;
+}
+
+
+/* ACTION BUTTONS */
+
+.medical-record-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.edit-medical-record-btn,
+.delete-medical-record-btn {
+    border: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.edit-medical-record-btn {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.edit-medical-record-btn:hover {
+    background: #bfdbfe;
+}
+
+.delete-medical-record-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-medical-record-btn:hover {
+    background: #fecaca;
+}
+
+
+/* MESSAGES */
+
+.medical-record-message {
+    padding: 40px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.medical-record-error {
+    padding: 20px;
+    text-align: center;
+    color: #dc2626;
+    background: #fef2f2;
+    font-size: 14px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .medical-record-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .medical-record-form-group.full-width {
+        grid-column: auto;
+    }
+
+    .medical-records-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .add-medical-record-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .medical-records-page {
+        padding: 16px;
+    }
+
+    .medical-record-table-header {
+        padding: 16px;
+    }
+
+    .medical-records-table th,
+    .medical-records-table td {
+        padding: 12px;
+    }
+
+    .medical-record-form-card {
+        padding: 18px;
+    }
+
+    .medical-record-form-actions {
+        flex-direction: column;
+    }
+
+    .medical-record-cancel-btn,
+    .medical-record-save-btn {
+        width: 100%;
+    }
+}
+/* Authentication additions: password recovery and Google sign-in */
+.forgot-password{display:flex;justify-content:flex-end;margin:-8px 0 14px;font-size:13px}
+.forgot-password a{color:#2563eb;font-weight:600;text-decoration:none}
+.forgot-password a:hover{text-decoration:underline}
+.google-login-section{margin-top:14px}
+.google-divider{display:flex;align-items:center;gap:12px;margin:15px 0;color:#64748b;font-size:12px}
+.google-divider::before,.google-divider::after{content:"";height:1px;flex:1;background:#e2e8f0}
+.google-login-control{display:flex;justify-content:center;width:100%;overflow:hidden}
+.google-login-control>div{max-width:100%}
+.login-success{margin-top:10px;padding:10px 12px;border-radius:8px;background:#ecfdf5;color:#166534;font-size:13px}
