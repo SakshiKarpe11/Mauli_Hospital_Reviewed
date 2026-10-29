@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
-import nodemailer from "nodemailer";
 import { OAuth2Client } from "google-auth-library";
 import User from "../models/user.js";
 import Patient from "../models/patient.js";
@@ -63,48 +62,129 @@ export const loginUser = async (req, res) => {
     }
 };
 
+
 export const forgotPassword = async (req, res) => {
-    try {
-        const email = req.body.email?.toLowerCase().trim();
-        if (!email) return res.status(400).json({ message: "Email is required" });
+  const genericMessage =
+    "If an account exists for this email, a verification code has been sent.";
 
-        // Use the same response for known and unknown accounts to reduce account enumeration.
-        const genericMessage = "If an account exists for this email, a verification code has been sent.";
-        const user = await User.findOne({ email }).select("+passwordResetOtpHash +passwordResetOtpExpires");
-        if (!user) return res.json({ message: genericMessage });
+  let user;
 
-        if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-            console.error("Password reset requested, but SMTP is not configured.");
-            return res.status(503).json({ message: "Password reset is temporarily unavailable. Please contact hospital support." });
-        }
+  try {
+    const email = req.body.email?.toLowerCase().trim();
 
-        const otp = String(crypto.randomInt(0, 1000000)).padStart(6, "0");
-        user.passwordResetOtpHash = crypto.createHash("sha256").update(otp).digest("hex");
-        user.passwordResetOtpExpires = new Date(Date.now() + 10 * 60 * 1000);
+    if (!email) {
+      return res.status(400).json({
+        message: "Email is required.",
+      });
+    }
+
+    user = await User.findOne({ email }).select(
+      "+passwordResetOtpHash +passwordResetOtpExpires"
+    );
+
+    // Do not reveal whether an account exists.
+    if (!user) {
+      return res.json({ message: genericMessage });
+    }
+
+    if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM) {
+      console.error("Resend environment variables are missing.");
+
+      return res.status(503).json({
+        message: "Email service is temporarily unavailable.",
+      });
+    }
+
+    // Generate a six-digit OTP valid for 10 minutes.
+    const otp = String(
+      crypto.randomInt(0, 1000000)
+    ).padStart(6, "0");
+
+    user.passwordResetOtpHash = crypto
+      .createHash("sha256")
+      .update(otp)
+      .digest("hex");
+
+    user.passwordResetOtpExpires = new Date(
+      Date.now() + 10 * 60 * 1000
+    );
+
+    user.passwordResetOtpAttempts = 0;
+
+    await user.save();
+
+    // Send the OTP using Resend's HTTPS API.
+    const response = await fetch(
+      "https://api.resend.com/emails",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: process.env.RESEND_FROM,
+          to: [user.email],
+          subject: "Mauli Hospital - Password Verification Code",
+          text: `Your Mauli Hospital password reset verification code is: ${otp}
+
+This code expires in 10 minutes.
+
+If you did not request a password reset, please ignore this email.`,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      const errorDetails = await response.text();
+
+      console.error(
+        "Resend email failed:",
+        response.status,
+        errorDetails
+      );
+
+      // Invalidate the OTP if the email could not be sent.
+      user.passwordResetOtpHash = undefined;
+      user.passwordResetOtpExpires = undefined;
+      user.passwordResetOtpAttempts = 0;
+      await user.save();
+
+      return res.status(502).json({
+        message: "Unable to send the verification email. Please try again later.",
+      });
+    }
+
+    console.log("Password reset email accepted by Resend.");
+
+    return res.json({ message: genericMessage });
+  } catch (error) {
+    console.error("Forgot password error:", {
+      message: error.message,
+      code: error.code,
+    });
+
+    // Avoid leaving a usable OTP after an unexpected sending error.
+    if (user) {
+      try {
+        user.passwordResetOtpHash = undefined;
+        user.passwordResetOtpExpires = undefined;
         user.passwordResetOtpAttempts = 0;
         await user.save();
-
-        const transporter = nodemailer.createTransport({
-            service: process.env.SMTP_SERVICE || "gmail",
-            auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
-        });
-        await transporter.sendMail({
-            from: process.env.SMTP_FROM || process.env.SMTP_USER,
-            to: user.email,
-            subject: "Mauli Hospital - Password Verification Code",
-            text: `Your Mauli Hospital password reset verification code is: ${otp}\n\nThis code expires in 10 minutes. Do not share this code with anyone. If you did not request a password reset, you can ignore this email.`
-        });
-        return res.json({ message: genericMessage });
-    } catch (error) {
-       console.error("Forgot password error:", {
-  message: error.message,
-  code: error.code,
-  command: error.command,
-  responseCode: error.responseCode,
-});
-        return res.status(500).json({ message: "Unable to process the password-reset request." });
+      } catch (cleanupError) {
+        console.error(
+          "OTP cleanup failed:",
+          cleanupError.message
+        );
+      }
     }
+
+    return res.status(500).json({
+      message: "Something went wrong. Please try again later.",
+    });
+  }
 };
+
 
 export const resetPassword = async (req, res) => {
     try {
