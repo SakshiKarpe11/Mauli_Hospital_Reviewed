@@ -96,7 +96,12 @@ export const forgotPassword = async (req, res) => {
         });
         return res.json({ message: genericMessage });
     } catch (error) {
-        console.error("Forgot password error:", error.message);
+       console.error("Forgot password error:", {
+  message: error.message,
+  code: error.code,
+  command: error.command,
+  responseCode: error.responseCode,
+});
         return res.status(500).json({ message: "Unable to process the password-reset request." });
     }
 };
